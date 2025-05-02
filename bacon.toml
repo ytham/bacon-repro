@@ -2,11 +2,9 @@
 command = [
   "cargo",
   "test",
-  # "--package",
-  # "bacon-repro",
-  # "--lib",
+  "--package",
+  "bacon-repro",
   "--",
-  # "tests::test_server",
   "--show-output",
   "--nocapture",
 ]
