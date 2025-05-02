@@ -1,0 +1,21 @@
+[jobs.axum-server]
+command = [
+  "cargo",
+  "test",
+  # "--package",
+  # "bacon-repro",
+  # "--lib",
+  "--",
+  # "tests::test_server",
+  "--show-output",
+  "--nocapture",
+]
+watch = ["src", "tests", "Cargo.toml", "Cargo.lock"]
+env = { "RUST_LOG" = "info" }
+background = false
+need_stdout = true
+on_change_strategy = "kill_then_restart"
+kill = ["pkill", "-2", "-f", "cargo test"]
+
+[settings]
+default_job = "axum-server"
